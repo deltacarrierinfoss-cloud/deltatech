@@ -1,189 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="or">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Deltatech Associate and Tech Solutions — website development, mobile app solutions and practical technology support for businesses and startups.">
-  <meta name="theme-color" content="#07152e">
-  <title>Deltatech | Associate and Tech Solutions</title>
-  <style>
-    :root {
-      --navy:#061329; --navy2:#0a1d3b; --blue:#087cf0; --cyan:#19c9f5;
-      --ink:#10213b; --muted:#63738b; --paper:#f5f8fc; --white:#fff;
-      --line:rgba(255,255,255,.13); --shadow:0 22px 60px rgba(3,17,42,.16);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(1160px,calc(100% - 40px));margin:auto}
-    .topbar{background:#030c1c;color:#c9d9ef;font-size:13px;padding:9px 0}
-    .topbar .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    header{position:sticky;top:0;z-index:20;background:rgba(5,18,40,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
-    .brand{display:flex;align-items:center;gap:12px;color:white;font-weight:850;letter-spacing:.2px;font-size:23px}
-    .brandmark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:white;font-weight:900;font-size:22px;box-shadow:0 8px 24px #087cf055}
-    .brand small{display:block;font-size:9px;letter-spacing:2.1px;color:#a8c5e9;font-weight:650;margin-top:-4px}
-    .navlinks{display:flex;align-items:center;gap:26px;color:#dce9fa;font-size:14px;font-weight:600}
-    .navlinks a:hover{color:var(--cyan)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;background:linear-gradient(110deg,var(--blue),#05b9e8);color:#fff;font-weight:750;box-shadow:0 10px 28px #087cf044;transition:.2s}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px #087cf066}
-    .menu{display:none;background:none;border:1px solid #426080;color:white;border-radius:10px;padding:8px 12px;font-size:20px}
-    .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 78% 25%,#0c4e93 0,transparent 32%),linear-gradient(125deg,#040d20,#081d3b 60%,#06264d);color:white;padding:92px 0 86px}
-    .hero:before,.hero:after{content:"";position:absolute;border:1px solid #20b8f522;border-radius:50%;width:520px;height:520px;right:-170px;top:-190px}
-    .hero:after{width:380px;height:380px;right:-100px;top:-120px}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
-    .eyebrow{display:inline-flex;gap:9px;align-items:center;color:#75e4ff;font-size:12px;letter-spacing:2.2px;text-transform:uppercase;font-weight:800}
-    .eyebrow:before{content:"";width:25px;height:2px;background:var(--cyan)}
-    h1{font-size:clamp(40px,5.3vw,66px);line-height:1.06;letter-spacing:-2.2px;margin:20px 0}
-    h1 span{background:linear-gradient(90deg,#22d4f7,#398cff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero p{color:#c3d4ea;font-size:18px;max-width:620px;margin:0 0 28px}
-    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-    .btn-outline{border:1px solid #6b8db5;color:white;padding:11px 19px;border-radius:999px;font-weight:700}
-    .hero-note{margin-top:28px;color:#9db7d7;font-size:13px}
-    .visual{position:relative;padding:14px;border:1px solid #43b9f766;border-radius:24px;background:linear-gradient(145deg,#ffffff16,#ffffff05);box-shadow:0 28px 70px #0008}
-    .visual img{display:block;width:100%;height:auto;border-radius:14px}
-    .visual-fallback{min-height:300px;border-radius:14px;background:linear-gradient(140deg,#0c2b54,#087cf0);display:grid;place-items:center;text-align:center;padding:30px;color:white}
-    .visual-fallback strong{font-size:38px;display:block}
-    section{padding:84px 0}
-    .section-head{text-align:center;max-width:720px;margin:0 auto 42px}
-    .kicker{color:#087cf0;font-size:12px;font-weight:850;letter-spacing:2px;text-transform:uppercase}
-    h2{font-size:clamp(30px,4vw,42px);line-height:1.15;letter-spacing:-1.2px;margin:10px 0 14px;color:#0a1b34}
-    .section-head p{color:var(--muted);margin:0;font-size:16px}
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .service{background:white;border:1px solid #e5ebf3;border-radius:18px;padding:26px;box-shadow:0 8px 28px #0b23400a;transition:.2s}
-    .service:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-    .icon{width:48px;height:48px;border-radius:14px;background:#eaf6ff;color:#087cf0;display:grid;place-items:center;font-size:23px;margin-bottom:17px}
-    .service h3{margin:0 0 8px;font-size:18px;color:#10213b}
-    .service p{margin:0;color:#68788e;font-size:14px}
-    .about{background:white}
-    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
-    .about-panel{background:linear-gradient(145deg,#07152e,#0c3670);border-radius:24px;padding:34px;color:white;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
-    .about-panel .big{font-size:42px;font-weight:900;line-height:1.1;letter-spacing:-1px}
-    .about-panel p{color:#bdd3ee;margin-bottom:0}
-    .about-copy p{color:#63738b}
-    .ticks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
-    .tick{font-size:14px;font-weight:700;color:#19324f}
-    .tick:before{content:"✓";display:inline-grid;place-items:center;background:#e4f7ff;color:#0785d8;border-radius:50%;width:22px;height:22px;margin-right:9px}
-    .stack{background:#07152e;color:white}
-    .stack h2{color:white}
-    .stack .section-head p{color:#a9bdd8}
-    .tech-list{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-    .tech{border:1px solid #2c527c;background:#0c2445;color:#e5f3ff;padding:12px 18px;border-radius:12px;font-weight:750;font-size:14px}
-    .tech span{color:#32c8f3;margin-right:7px}
-    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .step{background:white;border:1px solid #e5ebf3;border-radius:16px;padding:22px}
-    .step b{color:#0785e8;font-size:13px;letter-spacing:1px}
-    .step h3{margin:8px 0;font-size:17px}
-    .step p{font-size:14px;color:#6b7b91;margin:0}
-    .team{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:auto}
-    .person{background:white;border:1px solid #e5ebf3;border-radius:18px;padding:25px;display:flex;gap:16px;align-items:center}
-    .avatar{width:54px;height:54px;flex:none;border-radius:50%;background:linear-gradient(135deg,#08bfe9,#176de4);display:grid;place-items:center;color:white;font-weight:900;font-size:19px}
-    .person h3{margin:0;font-size:17px}.person p{margin:3px 0 0;color:#718096;font-size:13px}
-    .contact{background:linear-gradient(130deg,#07152e,#0a2d5a);color:white}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-    .contact h2{color:white}.contact p{color:#b8cbe3}
-    .email-card{border:1px solid #3e6d9d;background:#ffffff0b;border-radius:18px;padding:26px}
-    .email-card small{color:#8db9e7;text-transform:uppercase;letter-spacing:1.5px;font-weight:800}
-    .email-card a{display:block;font-size:clamp(18px,2.4vw,24px);font-weight:800;color:#6be1ff;margin:8px 0 18px;overflow-wrap:anywhere}
-    footer{background:#030b18;color:#91a6c2;padding:24px 0;font-size:13px}
-    footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    @media(max-width:900px){.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.visual{max-width:650px}.services{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:680px){.wrap{width:min(100% - 30px,1160px)}nav{height:68px}.menu{display:block}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:#061329;padding:18px 22px 24px;flex-direction:column;align-items:flex-start;border-top:1px solid var(--line)}.navlinks.open{display:flex}.navlinks .btn{width:100%}.topbar .wrap{justify-content:center;text-align:center}.hero{padding:66px 0}.hero-grid{gap:34px}h1{letter-spacing:-1.5px}.hero p{font-size:16px}section{padding:65px 0}.services{grid-template-columns:1fr}.ticks{grid-template-columns:1fr}.team{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.about-panel{min-height:250px}.email-card{padding:20px}}
-    @media(max-width:390px){.process{grid-template-columns:1fr}.brand{font-size:20px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090313">
+<title>ଶୁଭ ଦୀପାବଳି | Deltatech & Associates</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; overflow:hidden; background:#090313; }
+body { color:#fff; font-family: Georgia, "Noto Serif Oriya", serif; }
+.scene {
+  width:100%; height:100dvh; min-height:100vh; max-width:520px; margin:auto;
+  position:relative; overflow:hidden; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  background:radial-gradient(circle at 50% 45%, #64220c 0%, #21091d 48%, #070313 100%);
+}
+canvas { position:absolute; inset:0; width:100%; height:100%; }
+.content { position:relative; z-index:2; padding:22px; width:100%; animation:appear 1.8s ease both; }
+.brand { font-family:Arial,sans-serif; letter-spacing:4px; font-size:12px; color:#ffd77b; margin-bottom:34px; }
+.small { font-size:15px; color:#ffe0a1; letter-spacing:2px; }
+h1 {
+  font-size:clamp(48px, 14vw, 76px); line-height:1.15; color:#ffe3a0; margin:17px 0;
+  text-shadow:0 0 20px #ff9e25, 0 0 55px #ff6a00;
+  animation:glow 2s infinite alternate;
+}
+.divider { width:110px; height:2px; background:linear-gradient(90deg,transparent,#ffcf67,transparent); margin:22px auto; }
+.message {
+  font-size:clamp(22px, 6vw, 29px); line-height:1.85; font-weight:bold;
+  color:#fff0c5; text-shadow:0 0 15px #ff8c00, 0 2px 3px #210900;
+}
+.diya { font-size:68px; margin-top:24px; filter:drop-shadow(0 0 22px #ff8c00); animation:flicker 1.5s infinite alternate; }
+.footer { font-family:Arial,sans-serif; font-size:10px; letter-spacing:2px; color:#d9ad70; margin-top:28px; line-height:1.8; }
+@keyframes appear { from {opacity:0; transform:translateY(25px)} to {opacity:1; transform:translateY(0)} }
+@keyframes glow { from {text-shadow:0 0 15px #ff8b20} to {text-shadow:0 0 35px #ffd46a,0 0 75px #ff6500} }
+@keyframes flicker { from {transform:scale(.96)} to {transform:scale(1.08)} }
+</style>
 </head>
 <body>
-  <div class="topbar"><div class="wrap"><span>IDEA • CODE • BUILD • SCALE</span><span>Technology solutions for businesses and startups</span></div></div>
-  <header>
-    <nav class="wrap">
-      <a class="brand" href="#home" aria-label="Deltatech home"><span class="brandmark">D</span><span>DELTATECH<small>ASSOCIATE AND TECH SOLUTIONS</small></span></a>
-      <button class="menu" aria-label="Open navigation" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
-      <div class="navlinks">
-        <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#technology">Technology</a><a href="#team">Our Team</a><a class="btn" href="#contact">Get in Touch</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">Your technology partner</div>
-          <h1>Build your <span>digital future.</span></h1>
-          <p>Practical website, app and technology solutions for B2B and B2C businesses, entrepreneurs and startups. Turn your ideas into a stronger digital presence.</p>
-          <div class="hero-actions"><a class="btn" href="#contact">Discuss your project&nbsp; →</a><a class="btn-outline" href="#services">Explore our services</a></div>
-          <div class="hero-note">Modern thinking. Reliable development. Business-focused solutions.</div>
-        </div>
-        <div class="visual">
-          <img src="assets/deltatech-banner.png" alt="Deltatech Associate and Tech Solutions services banner" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-          <div class="visual-fallback" style="display:none"><div><strong>DELTATECH</strong><span>IDEA • CODE • BUILD • SCALE</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="wrap">
-        <div class="section-head"><div class="kicker">What we do</div><h2>Technology that moves business forward</h2><p>From a first online presence to practical digital tools, we help shape solutions around your goals.</p></div>
-        <div class="services">
-          <article class="service"><div class="icon">⌘</div><h3>Website Development</h3><p>Responsive business websites, landing pages, portfolios and content-managed websites.</p></article>
-          <article class="service"><div class="icon">▣</div><h3>Mobile App Solutions</h3><p>Basic Android and iOS app concepts, cross-platform applications and progressive web apps.</p></article>
-          <article class="service"><div class="icon">▤</div><h3>E-commerce & Business Sites</h3><p>Digital storefronts, product showcases and online experiences designed around customers.</p></article>
-          <article class="service"><div class="icon">✧</div><h3>UI/UX Design</h3><p>Clean interfaces, user journeys, wireframes and prototypes for useful digital experiences.</p></article>
-          <article class="service"><div class="icon">☁</div><h3>Hosting & Deployment</h3><p>Domain guidance, hosting setup, cloud deployment and website launch assistance.</p></article>
-          <article class="service"><div class="icon">⚙</div><h3>Integration & Support</h3><p>Database and API integration, maintenance, troubleshooting and ongoing technical support.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="wrap about-grid">
-        <div class="about-panel"><div><div class="eyebrow">About Deltatech</div><div class="big">Ideas into<br>digital solutions.</div></div><p>Supporting businesses and startups as they take their next step with technology.</p></div>
-        <div class="about-copy"><div class="kicker">Who we are</div><h2>A practical partner for your next digital step</h2><p>Deltatech Associate and Tech Solutions focuses on accessible, business-oriented digital services. We aim to make technology easier to approach, whether you are launching a startup, improving your business presence or exploring an app idea.</p><p>We believe every project should begin with understanding the real need, choosing an appropriate approach and building with clarity.</p>
-          <div class="ticks"><div class="tick">Business-focused approach</div><div class="tick">Responsive design</div><div class="tick">Scalable foundations</div><div class="tick">Clear communication</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="stack" id="technology">
-      <div class="wrap">
-        <div class="section-head"><div class="kicker">Our technology toolkit</div><h2>Built with modern technologies</h2><p>Tools and platforms that can support websites, applications and digital business systems.</p></div>
-        <div class="tech-list">
-          <div class="tech"><span>◆</span>HTML5</div><div class="tech"><span>◆</span>CSS3</div><div class="tech"><span>◆</span>JavaScript</div><div class="tech"><span>◆</span>React</div><div class="tech"><span>◆</span>Next.js</div><div class="tech"><span>◆</span>Python</div><div class="tech"><span>◆</span>PHP</div><div class="tech"><span>◆</span>Laravel</div><div class="tech"><span>◆</span>PostgreSQL</div><div class="tech"><span>◆</span>Git</div><div class="tech"><span>◆</span>GitHub</div><div class="tech"><span>◆</span>Flutter</div><div class="tech"><span>◆</span>WordPress</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="section-head"><div class="kicker">How we work</div><h2>A clear path from idea to launch</h2><p>A straightforward process keeps your project focused and organised.</p></div>
-        <div class="process">
-          <div class="step"><b>01 / DISCOVER</b><h3>Understand</h3><p>Discuss your goals, audience, requirements and project scope.</p></div>
-          <div class="step"><b>02 / PLAN</b><h3>Design & Plan</h3><p>Map the structure, features and visual direction before development.</p></div>
-          <div class="step"><b>03 / BUILD</b><h3>Develop</h3><p>Create and review the agreed website or application solution.</p></div>
-          <div class="step"><b>04 / LAUNCH</b><h3>Deploy & Support</h3><p>Prepare for launch and discuss maintenance or future improvements.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="team">
-      <div class="wrap">
-        <div class="section-head"><div class="kicker">The people behind Deltatech</div><h2>Meet the team</h2><p>Working together to help businesses move forward with technology.</p></div>
-        <div class="team">
-          <article class="person"><div class="avatar">DK</div><div><h3>Debabrata (Kanha)</h3><p>Admin · Founder & Tech Lead</p></div></article>
-          <article class="person"><div class="avatar">RB</div><div><h3>Rekha Bhardwaj (Spoorti)</h3><p>Co-Admin · Co-Founder & Tech Partner</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="wrap contact-grid">
-        <div><div class="kicker">Let's get started</div><h2>Have a project in mind?</h2><p>Tell us what you are building, what your business needs and how we can help. Get in touch to start a conversation.</p><a class="btn" href="mailto:deltacarrierinfoss@gmail.com?subject=Project%20Enquiry%20-%20Deltatech">Send an enquiry&nbsp; →</a></div>
-        <div class="email-card"><small>Business enquiries</small><a href="mailto:deltacarrierinfoss@gmail.com">deltacarrierinfoss@gmail.com</a><p>Website development · App solutions · Business technology</p></div>
-      </div>
-    </section>
+<div class="scene">
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+  <main class="content">
+    <div class="brand">DELTATECH &amp; ASSOCIATES</div>
+    <div class="small">ଆସିଗଲା ଆଲୋକର ପର୍ବ 🪔</div>
+    <h1>ଶୁଭ<br>ଦୀପାବଳି</h1>
+    <div class="divider"></div>
+    <div class="message">
+      କାଳୀପୂଜାରେ<br>
+      ଝୁମର ଅଛି ବେ! 😂<br><br>
+      ମାଟିରେ ଗଡ଼ିଯିବା! 🤣<br><br>
+      ଦୀପାବଳିର ମଜା<br>
+      ନେଇଯିବା! 🎆
+    </div>
+    <div class="diya">🪔</div>
+    <div class="footer">HAVE FUN • CELEBRATE • SPREAD LIGHT</div>
   </main>
-  <footer><div class="wrap"><span>© <span id="year"></span> Deltatech Associate and Tech Solutions. All rights reserved.</span><span>IDEA • CODE • BUILD • SCALE</span></div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.navlinks').classList.remove('open')));</script>
+</div>
+<script>
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+let particles = [];
+let dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+
+function resize() {
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = Math.floor(rect.width * dpr);
+  canvas.height = Math.floor(rect.height * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+window.addEventListener("resize", resize);
+resize();
+
+function burst(x, y) {
+  const colors = ["#ffd166", "#ff8c42", "#fff0b3", "#ffcf5c", "#ff6b35"];
+  for (let i = 0; i < 65; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 3 + 0.7;
+    particles.push({
+      x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+      life: 1, decay: 0.009 + Math.random() * 0.009,
+      size: 1 + Math.random() * 2,
+      color: colors[Math.floor(Math.random() * colors.length)]
+    });
+  }
+}
+
+function animate() {
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  ctx.clearRect(0, 0, w, h);
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i];
+    p.x += p.vx; p.y += p.vy; p.vy += 0.025; p.life -= p.decay;
+    ctx.globalAlpha = Math.max(0, p.life);
+    ctx.fillStyle = p.color;
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+    if (p.life <= 0) particles.splice(i, 1);
+  }
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(animate);
+}
+animate();
+
+function randomBurst() {
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  burst(25 + Math.random() * (w - 50), 30 + Math.random() * h * 0.48);
+}
+setInterval(randomBurst, 850);
+setTimeout(randomBurst, 250);
+setTimeout(randomBurst, 650);
+</script>
 </body>
 </html>
